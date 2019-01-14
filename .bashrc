@@ -124,6 +124,15 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# Ignore case on auto-completion
+# Note: bind used instead of sticking these in .inputrc
+if [[ $iatest > 0 ]]; then bind "set completion-ignore-case on"; fi
+
+# Show auto-completion list automatically, without double tab
+if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
 
 cd ~/
 
