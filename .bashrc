@@ -134,8 +134,6 @@ if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-cd ~/
-
 # Eternal bash history.
 # ---------------------
 # Undocumented feature which sets the size to "unlimited".
@@ -155,6 +153,10 @@ export GPG_TTY=$(tty)
 export PATH=$PATH:/usr/local/go/bin
 
 touch /tmp/tmux-1000/default
+
+# Quick Command-line File Completion
+[[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
+qfc_quick_command 'cd' '\C-b' 'cd $0'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/zbalint/.sdkman"
